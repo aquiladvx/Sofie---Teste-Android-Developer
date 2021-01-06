@@ -2,22 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.debcomp.aql.sofietesteandroiddeveloper">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".infra.SofieCentralApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SofieTesteAndroidDeveloper">
-        <activity android:name=".feature.task.hometask.presentation.HomeActivity"></activity>
-        <activity android:name=".feature.splashscreen.SplashActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".feature.task.addtask.presentation.AddTaskActivity" />
+        <activity android:name=".feature.task.detailtask.presentation.DetailTaskActivity" />
+        <activity android:name=".feature.task.hometask.presentation.HomeActivity"/>
+            <activity android:name=".feature.splashscreen.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
