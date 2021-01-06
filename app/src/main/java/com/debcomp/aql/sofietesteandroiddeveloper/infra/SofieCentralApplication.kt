@@ -1,4 +1,4 @@
-package com.debcomp.aql.sofietesteandroiddeveloper
+package com.debcomp.aql.sofietesteandroiddeveloper.infra
 
 import android.app.Application
 
