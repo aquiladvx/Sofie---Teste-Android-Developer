@@ -65,7 +65,9 @@ class HomeActivity : BaseActivity() {
 
     private fun taskClickListener(mTask: Task) {
         Log.i(TAG, "item id = $taskId")
-        startActivity(DetailTaskActivity.start(this, mTask))
+        if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
+            startActivity(DetailTaskActivity.start(this, mTask))
+        }
     }
 
     private fun setActions() {
@@ -73,10 +75,17 @@ class HomeActivity : BaseActivity() {
             startActivity(AddTaskActivity.start(this))
         }
 
-        /*
-            Feature para remocao do item com swipe para a esquerda
-            (nao implementado por nao ser possivel excluir itens no servidor)
-         */
+        if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
+            pullToRefresh.setOnRefreshListener {
+                init()
+                pullToRefresh.isRefreshing = false
+            }
+        }
+
+            /*
+                Feature para remocao do item com swipe para a esquerda
+                (nao implementado por nao ser possivel excluir itens no servidor)
+             */
 //        val simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
 //            ItemTouchHelper.SimpleCallback(
 //                0,
@@ -104,7 +113,7 @@ class HomeActivity : BaseActivity() {
     private fun setObservers() {
         viewModel.allTasks.observe(this, Observer { result ->
             hideLoading()
-            when(result.status) {
+            when (result.status) {
                 ResponseStatus.OK -> {
                     tasks = result.response?.tasks as MutableList<Task>
                     adapter.submit(tasks)
@@ -122,7 +131,7 @@ class HomeActivity : BaseActivity() {
         //Construido para uma futura implementacao de remocao de tasks
         viewModel.removeTask.observe(this, Observer { result ->
             hideLoading()
-            when(result.status) {
+            when (result.status) {
                 ResponseStatus.OK -> {
                     Toast.makeText(this, "Tarefa removida com sucesso!", Toast.LENGTH_SHORT).show()
                     tasks.removeAt(result.position)

@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.debcomp.aql.sofietesteandroiddeveloper.R
@@ -89,9 +90,10 @@ class AddTaskActivity : BaseActivity() {
 
     private fun addTask() {
         hideKeyboard(mView)
-        val email = et_email.text.toString()
-        val title = et_name_task.text.toString()
-        val desc = et_ml_description.text.toString()
+
+        val email = findViewById<AppCompatEditText>(R.id.et_email).text.toString()
+        val title = findViewById<AppCompatEditText>(R.id.et_name_task).text.toString()
+        val desc = findViewById<AppCompatEditText>(R.id.et_ml_description).text.toString()
 
         if (email.isNotEmpty() && title.isNotEmpty() && desc.isNotEmpty()) {
             if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {

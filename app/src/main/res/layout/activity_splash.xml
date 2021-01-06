@@ -7,7 +7,7 @@
     tools:context=".feature.splashscreen.SplashActivity">
 
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="120dp"
@@ -16,7 +16,7 @@
             android:layout_marginEnd="105dp"
             android:layout_marginRight="105dp"
             android:layout_marginBottom="260dp"
-            android:src="@drawable/logo"
+            app:srcCompat="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

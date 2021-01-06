@@ -1,6 +1,7 @@
 package com.debcomp.aql.sofietesteandroiddeveloper.infra
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 
 /*
@@ -15,6 +16,9 @@ var isLoading = false
 lateinit var loader: Loader
 
 open class BaseActivity: AppCompatActivity() {
+    init {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    }
 
     fun showLoading() {
         if(!isLoading) {
