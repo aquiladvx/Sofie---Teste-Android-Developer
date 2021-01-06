@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Sofie - Teste Android Developer</string>
+    <string name="app_name">Sofie</string>
+    <string name="add_task">Adicionar Tarefa</string>
+    <string name="title_tasks_home">Tarefas</string>
+
+
+    <string name="email_test_android_developer">sofie@sofie.com</string>
+    <string name="email">email</string>
+    <string name="task_name">Nome da tarefa</string>
+    <string name="task_description">Descrição da Tarefa</string>
+    <string name="title_add_task_toolbar">Nova tarefa</string>
+
+
+    <string name="alpha_num">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="ops">ops</string>
+    <string name="error_response">Parece que tivemos um problema.\nPor favor, tente novamente mais tarde.</string>
+    <string name="error_network">Parece que você está sem conexão com a internet. </string>
 </resources>
