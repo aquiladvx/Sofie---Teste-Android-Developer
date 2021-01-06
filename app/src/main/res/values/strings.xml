@@ -9,6 +9,7 @@
     <string name="task_name">Nome da tarefa</string>
     <string name="task_description">Descrição da Tarefa</string>
     <string name="title_add_task_toolbar">Nova tarefa</string>
+    <string name="title_details_task_toolbar">Detalhes da tarefa</string>
 
 
     <string name="alpha_num">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>

@@ -18,6 +18,7 @@ class DetailTaskActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_task)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.title_details_task_toolbar)
 
         setText()
     }
