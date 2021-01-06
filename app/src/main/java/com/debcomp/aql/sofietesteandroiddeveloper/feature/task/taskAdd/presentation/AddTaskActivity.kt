@@ -1,4 +1,4 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.presentation
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.presentation
 
 import android.app.Activity
 import android.content.Context
@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.debcomp.aql.sofietesteandroiddeveloper.R
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.SofieCentralApplication
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.model.AddTaskViewModel
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.model.AddTaskViewModel
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.SimpleTask
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.BaseActivity

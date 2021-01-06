@@ -7,7 +7,7 @@
     android:padding="18dp"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".feature.task.addtask.presentation.AddTaskActivity">
+    tools:context=".feature.task.taskAdd.presentation.AddTaskActivity">
 
     <TextView
         tools:text="email@email.com"

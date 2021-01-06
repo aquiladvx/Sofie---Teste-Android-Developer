@@ -1,4 +1,4 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

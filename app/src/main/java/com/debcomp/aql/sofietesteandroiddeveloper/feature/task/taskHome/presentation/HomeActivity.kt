@@ -1,19 +1,17 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.presentation
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.presentation
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.debcomp.aql.sofietesteandroiddeveloper.R
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.presentation.AddTaskActivity
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.presentation.AddTaskActivity
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.Task
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.detailtask.presentation.DetailTaskActivity
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.adapter.TaskAdapter
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model.TaskViewModel
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskDetail.presentation.DetailTaskActivity
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.adapter.TaskAdapter
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.model.TaskViewModel
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.BaseActivity
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.MyAlertDialog
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.SofieCentralApplication

@@ -6,14 +6,14 @@ import android.net.ConnectivityManager
 import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.model.AddTaskResult
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.model.AddTaskResult
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.SimpleTask
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskList
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskResponse
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.service.TaskService
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model.AllTasksResult
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model.RemoveTaskResult
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.model.AllTasksResult
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.model.RemoveTaskResult
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.util.Constants
 import retrofit2.Call
 import retrofit2.Callback

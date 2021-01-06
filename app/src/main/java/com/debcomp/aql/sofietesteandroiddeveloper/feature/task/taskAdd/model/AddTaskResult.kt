@@ -1,6 +1,5 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.model
 
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskList
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskResponse
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
 
@@ -13,9 +12,10 @@ import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.Respon
  *
  */
 
-data class AllTasksResult(
+data class AddTaskResult(
     val status: ResponseStatus,
-    val response: TaskList? = TaskList(emptyList()),
+    val response: TaskResponse?,
     val message: String = ""
 )
+
 

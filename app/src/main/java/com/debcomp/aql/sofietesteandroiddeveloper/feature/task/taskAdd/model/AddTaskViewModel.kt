@@ -1,13 +1,11 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.model
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskAdd.model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.SimpleTask
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.Task
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.repository.TaskRepository
-import kotlinx.coroutines.Dispatchers
 import java.lang.IllegalArgumentException
 
 

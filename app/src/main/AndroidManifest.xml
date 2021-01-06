@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SofieTesteAndroidDeveloper">
-        <activity android:name=".feature.task.addtask.presentation.AddTaskActivity" />
-        <activity android:name=".feature.task.detailtask.presentation.DetailTaskActivity" />
-        <activity android:name=".feature.task.hometask.presentation.HomeActivity"/>
+        <activity android:name=".feature.task.taskAdd.presentation.AddTaskActivity" />
+        <activity android:name=".feature.task.taskDetail.presentation.DetailTaskActivity" />
+        <activity android:name=".feature.task.taskHome.presentation.HomeActivity"/>
             <activity android:name=".feature.splashscreen.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

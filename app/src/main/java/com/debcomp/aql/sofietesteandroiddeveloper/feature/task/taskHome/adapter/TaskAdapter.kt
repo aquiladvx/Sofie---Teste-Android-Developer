@@ -1,4 +1,4 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.adapter
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskHome.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

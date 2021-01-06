@@ -1,4 +1,4 @@
-package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.detailtask.presentation
+package com.debcomp.aql.sofietesteandroiddeveloper.feature.task.taskDetail.presentation
 
 import android.content.Context
 import android.content.Intent
