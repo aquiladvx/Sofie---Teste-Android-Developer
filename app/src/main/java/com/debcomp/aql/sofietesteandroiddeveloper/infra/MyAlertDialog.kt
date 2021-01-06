@@ -20,6 +20,15 @@ import com.debcomp.aql.sofietesteandroiddeveloper.R
 open class MyAlertDialog : AppCompatDialogFragment() {
 
     companion object {
+
+        /**
+         * Metodo utilizado para comunicar algum aviso ao usuario,
+         * Titulo definido como "Ops" por default.
+         *
+         * @param txt           Texto do dialogo.
+         * @param activity      Activity.
+         *
+         */
         fun showWarningDialog(txt: String, activity: Activity) {
             val dialog = Dialog(activity)
             dialog.setCancelable(false)
@@ -38,6 +47,17 @@ open class MyAlertDialog : AppCompatDialogFragment() {
             dialog.window?.attributes = lp
         }
 
+        /**
+         * Metodo utilizado para comunicar algum aviso ao usuario,
+         * onde ele tenha uma opcao de escolha.
+         *
+         * Titulo definido como "Opa!" por default.
+         *
+         * @param txt           Texto do dialogo.
+         * @param activity      Activity.
+         *
+         * @return Dialog instance.
+         */
         fun showWarningChoiceDialog(txt: String, activity: Activity): Dialog {
             val dialog = Dialog(activity)
             dialog.setCancelable(false)
