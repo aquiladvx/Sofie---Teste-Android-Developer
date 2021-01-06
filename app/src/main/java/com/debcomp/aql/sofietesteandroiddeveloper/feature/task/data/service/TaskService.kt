@@ -31,11 +31,4 @@ interface TaskService {
         @Path(value = "task_id") taskId: String
     ): Call<TaskResponse>
 
-//    @GET("discover/tv")
-//    fun getShowByGenre(
-//        @Query("api_key")apiKey: String,
-//        @Query("language")language: String = "pt-BR",
-//        @Query("with_genres")genreId: Int
-//    ): Call<ShowList>
-
 }
