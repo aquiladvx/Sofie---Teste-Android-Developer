@@ -11,12 +11,14 @@ import com.debcomp.aql.sofietesteandroiddeveloper.R
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.presentation.AddTaskActivity
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.Task
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
+import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.detailtask.presentation.DetailTaskActivity
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.adapter.TaskAdapter
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.hometask.model.TaskViewModel
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.BaseActivity
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.MyAlertDialog
 import com.debcomp.aql.sofietesteandroiddeveloper.infra.SofieCentralApplication
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.dialog_choice_warning.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -61,9 +63,9 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun taskClickListener(taskId: String) {
+    private fun taskClickListener(mTask: Task) {
         Log.i(TAG, "item id = $taskId")
-//        startActivity(DetailTaskActivity.start(this, taskId))
+        startActivity(DetailTaskActivity.start(this, mTask))
     }
 
     private fun setActions() {
@@ -71,36 +73,33 @@ class HomeActivity : BaseActivity() {
             startActivity(AddTaskActivity.start(this))
         }
 
-        //Swipe item on RecyclerView
-        val simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
-            ItemTouchHelper.SimpleCallback(
-                0,
-                ItemTouchHelper.LEFT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                Toast.makeText(this@HomeActivity, "on Move", Toast.LENGTH_SHORT).show()
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
-                Toast.makeText(this@HomeActivity, "on Swiped ", Toast.LENGTH_SHORT).show()
-                val position = viewHolder.adapterPosition
-                removeTask(viewHolder.adapterPosition)
-
-            }
-        }
-        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
-        itemTouchHelper.attachToRecyclerView(rv_all_tasks)
+        /*
+            Feature para remocao do item com swipe para a esquerda
+            (nao implementado por nao ser possivel excluir itens no servidor)
+         */
+//        val simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+//            ItemTouchHelper.SimpleCallback(
+//                0,
+//                ItemTouchHelper.LEFT) {
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+//                val position = viewHolder.adapterPosition
+//                removeTask(viewHolder.adapterPosition)
+//
+//            }
+//        }
+//        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+//        itemTouchHelper.attachToRecyclerView(rv_all_tasks)
 
     }
 
-    fun removeTask(position: Int) {
-        tasks.removeAt(position)
-        adapter.notifyItemRemoved(position)
-    }
 
     private fun setObservers() {
         viewModel.allTasks.observe(this, Observer { result ->
@@ -119,6 +118,43 @@ class HomeActivity : BaseActivity() {
             }
 
         })
+
+        //Construido para uma futura implementacao de remocao de tasks
+        viewModel.removeTask.observe(this, Observer { result ->
+            hideLoading()
+            when(result.status) {
+                ResponseStatus.OK -> {
+                    Toast.makeText(this, "Tarefa removida com sucesso!", Toast.LENGTH_SHORT).show()
+                    tasks.removeAt(result.position)
+                    adapter.notifyItemRemoved(result.position)
+                }
+                ResponseStatus.ERROR -> {
+                    MyAlertDialog.showWarningDialog(getString(R.string.error_response), this)
+
+                }
+                ResponseStatus.NETWORK_CONNECTION_FAILED -> {
+                    MyAlertDialog.showWarningDialog(getString(R.string.error_network), this)
+                }
+            }
+        })
+    }
+
+    fun removeTask(position: Int) {
+        val dialog = MyAlertDialog.showWarningChoiceDialog(getString(R.string.confirm_delete_task), this)
+        dialog.btnOk.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                showLoading()
+                viewModel.removeTask(tasks[position], position)
+                dialog.dismiss()
+            }
+        }
+
+        dialog.btnNok.setOnClickListener {
+            adapter.notifyDataSetChanged()
+            dialog.dismiss()
+        }
+        dialog.show()
+
     }
 
     companion object {

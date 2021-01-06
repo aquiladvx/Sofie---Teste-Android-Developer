@@ -16,5 +16,6 @@ import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.Respon
 data class RemoveTaskResult(
     val status: ResponseStatus,
     val response: TaskResponse?,
-    val message: String = ""
+    val message: String = "",
+    val position: Int = 0
 )

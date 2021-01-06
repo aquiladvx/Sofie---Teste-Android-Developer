@@ -21,10 +21,11 @@ class TaskViewModel(val app: Application) : AndroidViewModel(app) {
 
     private val repository = TaskRepository(app)
     val allTasks = repository.allTasks
+    val removeTask = repository.removeTask
 
     suspend fun getAllTasks(email: String) = repository.getAllTasks(email)
 
-    suspend fun removeTask(task: Task) = repository.removeTask(task.id)
+    suspend fun removeTask(task: Task, position: Int) = repository.removeTask(task.id, position)
 
     //Factory
     class TaskViewModelFactory constructor(private val application: Application) :

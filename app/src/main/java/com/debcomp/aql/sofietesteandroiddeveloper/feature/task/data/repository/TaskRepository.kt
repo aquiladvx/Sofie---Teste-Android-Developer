@@ -8,7 +8,6 @@ import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.addtask.model.AddTaskResult
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.SimpleTask
-import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.Task
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskList
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.entity.TaskResponse
 import com.debcomp.aql.sofietesteandroiddeveloper.feature.task.data.model.ResponseStatus
@@ -105,7 +104,7 @@ class TaskRepository(val app: Application) {
     }
 
     @WorkerThread
-    suspend fun removeTask(id: String) {
+    suspend fun removeTask(id: String, position: Int) {
         if (networkAvailable()) {
             val retrofit = Retrofit.Builder()
                 .baseUrl(Constants.WEB_SERVICE_URL)
@@ -126,7 +125,7 @@ class TaskRepository(val app: Application) {
                     response: Response<TaskResponse>
                 ) {
                     if (response.body()!!.success) {
-                        removeTask.postValue(RemoveTaskResult(ResponseStatus.OK, response = response.body()))
+                        removeTask.postValue(RemoveTaskResult(ResponseStatus.OK, response = response.body(), position = position))
                     } else {
                         removeTask.postValue(RemoveTaskResult(ResponseStatus.ERROR, null))
                     }

@@ -20,13 +20,13 @@ import java.util.*
  */
 class TaskAdapter internal constructor(
     context: Context,
-    private val listener: (String) -> Unit
+    private val listener: (Task) -> Unit
 ): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
     private var tasks = Collections.emptyList<Task>()
 
-    inner class TaskViewHolder(itemView: View, private val listener: (String) -> Unit):
+    inner class TaskViewHolder(itemView: View, private val listener: (Task) -> Unit):
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private val taskItemTitle: TextView = itemView.findViewById(R.id.txtItemTaskName)
@@ -39,12 +39,12 @@ class TaskAdapter internal constructor(
             taskItemEmail.text = data.email
 
             itemView.setOnClickListener {
-                listener.invoke(mTask.id)
+                listener.invoke(mTask)
             }
         }
 
         override fun onClick(p0: View?) {
-            listener.invoke(mTask.id)
+            listener.invoke(mTask)
         }
 
     }
