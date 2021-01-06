@@ -4,6 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.task.detailtask.presentation.DetailTaskActivity">
+    android:padding="18dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".feature.task.addtask.presentation.AddTaskActivity">
+
+    <TextView
+        tools:text="email@email.com"
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:hint="@string/email"
+        android:fontFamily="@font/roboto"
+        android:textSize="16sp"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        tools:text="Titulo"
+        android:id="@+id/tv_name_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:hint="@string/task_name"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+    <TextView
+        android:id="@+id/tv_task_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/task_description"
+        android:textSize="16sp"
+        android:textColor="@color/item_email"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_task" />
+
+    <TextView
+        android:id="@+id/tv_ml_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_shape"
+        android:ems="10"
+        android:minLines="5"
+        android:gravity="start|top"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintTop_toBottomOf="@id/tv_task_description" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

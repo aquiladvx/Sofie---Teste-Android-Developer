@@ -17,7 +17,7 @@ import com.debcomp.aql.sofietesteandroiddeveloper.R
  *
  */
 
-open class MyAlertDialog: AppCompatDialogFragment() {
+open class MyAlertDialog : AppCompatDialogFragment() {
 
     companion object {
         fun showWarningDialog(txt: String, activity: Activity) {
@@ -36,6 +36,20 @@ open class MyAlertDialog: AppCompatDialogFragment() {
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             dialog.show()
             dialog.window?.attributes = lp
+        }
+
+        fun showWarningChoiceDialog(txt: String, activity: Activity): Dialog {
+            val dialog = Dialog(activity)
+            dialog.setCancelable(false)
+            dialog.setContentView(R.layout.dialog_choice_warning)
+
+            val body = dialog.findViewById(R.id.txt_dialog) as TextView
+            body.text = txt
+            val lp = WindowManager.LayoutParams()
+            lp.copyFrom(dialog.window?.attributes)
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            dialog.window?.attributes = lp
+            return dialog
         }
     }
 

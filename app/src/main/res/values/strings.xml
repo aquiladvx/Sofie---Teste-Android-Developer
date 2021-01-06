@@ -17,4 +17,9 @@
     <string name="ops">ops</string>
     <string name="error_response">Parece que tivemos um problema.\nPor favor, tente novamente mais tarde.</string>
     <string name="error_network">Parece que você está sem conexão com a internet. </string>
+    <string name="confirm_delete_task">Tem certeza que quer excluir essa tarefa?</string>
+    <string name="error_delete">Isso foi apenas uma simulação de exclusão para uma futura feature do app. A tarefa foi apenas removida da lista, e não do servidor.</string>
+    <string name="alert">opa!</string>
+    <string name="yes">sim</string>
+    <string name="no">não</string>
 </resources>
